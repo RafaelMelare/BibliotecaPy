@@ -28,7 +28,7 @@ class GerenciadorDeLivro:
         if livro == None:
             print(f"Livro '{titulo}' não cadastrado")
 
-        elif  livro != None and livro.get_disponivel():
+        elif  livro != None and livro.is_disponivel():
             usuario.add_livro_emprestado(livro)
             livro.set_disponivel(False)
             print(f"Livro '{titulo}' emprestado para {usuario.get_nome()}.")
@@ -43,7 +43,7 @@ class GerenciadorDeLivro:
             print(f"Livro '{titulo}' não cadastrado")
         
         elif livro in usuario.get_livros_emprestados():
-            usuario.remove_livro_emprestado.remove(livro)
+            usuario.remove_livro_emprestado(livro)
             livro.set_disponivel(True)
 
             print(f"Livro '{titulo}' devolvido por {usuario.get_nome()}.")
@@ -51,4 +51,3 @@ class GerenciadorDeLivro:
         else:
             print(f"Livro '{titulo}' não foi emprestado por {usuario.get_nome()}.")
         
-           
