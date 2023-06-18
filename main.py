@@ -1,7 +1,7 @@
-from gerenciador_livro import GerenciadorDeLivro
-from gerenciador_usuario import GerenciadorDeUsuario
-from livro import Livro
-from usuario import Usuario
+from GerenciadorDeLivro import GerenciadorDeLivro
+from GerenciadorDeUsuario import GerenciadorDeUsuario
+from Livro import Livro
+from Usuario import Usuario
 
 def main():
     gerenciador_livro = GerenciadorDeLivro()
