@@ -1,56 +1,41 @@
+from gerenciador_livro import GerenciadorDeLivro
+from gerenciador_usuario import GerenciadorDeUsuario
+from livro import Livro
+from usuario import Usuario
 
+def main():
+    gerenciador_livro = GerenciadorDeLivro()
+    gerenciador_usuario = GerenciadorDeUsuario()
 
+    # Criando livros
+    livro1 = Livro("Livro 1", "Autor 1", 2020)
+    livro2 = Livro("Livro 2", "Autor 2", 2018)
+    livro3 = Livro("Livro 3", "Autor 3", 2021)
 
+    # Adicionando livros ao gerenciador de livros
+    gerenciador_livro.adicionar_livro(livro1)
+    gerenciador_livro.adicionar_livro(livro2)
+    gerenciador_livro.adicionar_livro(livro3)
 
+    # Criando usuários
+    usuario1 = Usuario("Usuário 1", "usuario1@examplo.com")
+    usuario2 = Usuario("Usuário 2", "usuario2@examplo.com")
 
-    
+    # Adicionando usuários ao gerenciador de usuários
+    gerenciador_usuario.adicionar_usuario(usuario1)
+    gerenciador_usuario.adicionar_usuario(usuario2)
 
+    # Empréstimo de livros
+    gerenciador_livro.emprestar_livro(usuario1, "Livro 1")
+    gerenciador_livro.emprestar_livro(usuario2, "Livro 2")
 
+    # Devolução de livros
+    gerenciador_livro.devolver_livro(usuario1, "Livro 1")
+    gerenciador_livro.devolver_livro(usuario2, "Livro 3")
 
+    # Removendo usuários
+    gerenciador_usuario.remover_usuario(usuario1)
+    gerenciador_usuario.remover_usuario(usuario2)
 
-
-# Exemplo de uso do código:
-
-# Criação de alguns livros
-livro1 = Livro("Python para Iniciantes", "John Smith", 2018)
-livro2 = Livro("Python Avançado", "Jane Doe", 2020)
-
-# Criação de usuários
-usuario1 = Usuario("Alice", "alice@example.com")
-usuario2 = Usuario("Bob", "bob@example.com")
-
-# Criação da biblioteca
-biblioteca = Biblioteca()
-
-# Adicionar livros à biblioteca
-biblioteca.adicionar_livro(livro1)
-biblioteca.adicionar_livro(livro2)
-
-# Adicionar usuários à biblioteca
-biblioteca.adicionar_usuario(usuario1)
-biblioteca.adicionar_usuario(usuario2)
-
-# Empréstimo de livro
-usuario1.emprestar_livro(livro1)
-
-# Tentativa de empréstimo de livro indisponível
-usuario2.emprestar_livro(livro1)
-
-# Devolução de livro
-usuario1.devolver_livro(livro1)
-
-# Remoção de livro
-biblioteca.remover_livro(livro2)
-
-# Remoção de usuário
-biblioteca.remover_usuario(usuario2)
-
-# Busca de livro e usuário
-livro_encontrado = biblioteca.buscar_livro("Python para Iniciantes")
-usuario_encontrado = biblioteca.buscar_usuario("Alice")
-
-# Exemplo de uso dos métodos de acesso
-if livro_encontrado:
-    print(livro_encontrado.obter_titulo())
-if usuario_encontrado:
-    print(usuario_encontrado.obter_nome())
+if __name__ == "__main__":
+    main()
